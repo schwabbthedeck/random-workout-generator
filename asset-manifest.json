@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/random-workout-generator/static/css/main.5f361e03.chunk.css",
+    "main.js": "/random-workout-generator/static/js/main.d3f78401.chunk.js",
+    "main.js.map": "/random-workout-generator/static/js/main.d3f78401.chunk.js.map",
+    "runtime-main.js": "/random-workout-generator/static/js/runtime-main.5061baeb.js",
+    "runtime-main.js.map": "/random-workout-generator/static/js/runtime-main.5061baeb.js.map",
+    "static/js/2.ece81bff.chunk.js": "/random-workout-generator/static/js/2.ece81bff.chunk.js",
+    "static/js/2.ece81bff.chunk.js.map": "/random-workout-generator/static/js/2.ece81bff.chunk.js.map",
+    "index.html": "/random-workout-generator/index.html",
+    "precache-manifest.6516fa786811adbb7a88f81cfeb2d0ae.js": "/random-workout-generator/precache-manifest.6516fa786811adbb7a88f81cfeb2d0ae.js",
+    "service-worker.js": "/random-workout-generator/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/random-workout-generator/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.ece81bff.chunk.js.LICENSE.txt": "/random-workout-generator/static/js/2.ece81bff.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/random-workout-generator/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5061baeb.js",
+    "static/js/2.ece81bff.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.d3f78401.chunk.js"
+  ]
+}
