@@ -1,0 +1,18 @@
+.MainInput {
+  text-align: center;
+  height: 100vh;
+  background-color: #282c34;
+  color: #fff;
+}
+
+.main-container {
+  padding-top: 25vh;
+}
+
+.main-container .row {
+  padding: 15px;
+}
+
+ul {
+  list-style-type: none;
+}
