@@ -22,7 +22,7 @@ class MainInput extends Component {
       intro: false,
       buttonText: "I want a new workout!",
       workout: ChooseAWorkout(),
-      repNumber: Math.floor(Math.random() * 15),
+      repNumber: Math.ceil(Math.random() * 14),
     })
   }
 
