@@ -5,6 +5,8 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import './MainInput.css';
 
+// ugly but it works - will refractor into more components moving forward
+
 class MainInput extends Component {
   constructor(props) {
     super(props);
@@ -12,8 +14,9 @@ class MainInput extends Component {
     this.state = {
       intro: true,
       buttonText: "Pick Me A Random Workout!",
-      workoutInfo: null,
-      repNumber: 0
+      workoutInfo: [],
+      repNumber: 0,
+      anxious: false,
     }
   }
 
@@ -23,32 +26,79 @@ class MainInput extends Component {
       buttonText: "I want a new workout!",
       workout: ChooseAWorkout(),
       repNumber: Math.ceil(Math.random() * 14),
-    })
+    });
+  }
+
+  deepBreath() {
+    this.setState({
+      intro: false,
+      anxious: true,
+    });
+    document.getElementById("main-container").style.display = "none";
+    document.getElementById("anxiety-container").style.display = "block";
   }
 
   render() {
+    let workoutText;
+    if (!this.state.intro && !this.state.anxious) {
+      workoutText = (
+        <Row>
+          <Col>
+            <ul>
+              {this.state.workout.map(item => (
+                <li key={item}>{this.state.repNumber} {item}</li>
+              ))}
+              <li>20 Mountain Climbers</li>
+            </ul>
+          </Col>
+        </Row>
+      );
+    }
+
     return (
       <div className="MainInput">
-        <Container className="main-container" fluid>
-          <Row>
+        <div className="top-row">
+          <Button className="reset-button" variant="outline-primary" size="sm"
+            onClick={() => window.location.reload(false)}
+            disabled={this.state.intro}>
+            Reset
+          </Button>
+          <Button className="anxiety-button" variant="warning" size="sm"
+            onClick={() => this.deepBreath()}>
+            Help, I'm Anxious!
+          </Button>
+        </div>
+        <Container id="main-container" fluid>
+          <Row className="intro-information">
             <Col>
-              {this.state.intro ? <
-                IntroInformation /> :
-                <ul>
-                  {this.state.workout.map(item => (
-                    <li key={item}>{this.state.repNumber} {item}</li>
-                  ))}
-                  <li>20 Mountain Climbers</li>
-                </ul>
-              }
+              <IntroInformation />
             </Col>
           </Row>
-          <Row>
+          {workoutText}
+
+          <Row className="random-button-row">
             <Col md={{ span: 8, offset: 2 }}>
               <Button className="random-button" variant="primary" size="lg" block
                 onClick={() => this.chooseWorkout()}>
                 {this.state.buttonText}
               </Button>
+            </Col>
+          </Row>
+          
+        </Container>
+        <Container id="anxiety-container">
+        <Row>
+            <Col>
+              {/* <div style={{ width: '100%', height: '0', paddingBottom: '108%', position: 'relative' }}>
+                <iframe title="breath-gif" src="https://giphy.com/embed/krP2NRkLqnKEg" width="100%" height="100%" style={{ position: 'absolute' }} frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
+              </div>
+              <p>
+                <a href="https://giphy.com/gifs/help-satisfying-breathe-krP2NRkLqnKEg">via GIPHY</a>
+              </p> */}
+              <img alt="breathing-gif" src="https://media.giphy.com/media/krP2NRkLqnKEg/source.gif"></img>
+              <p>
+                <a href="https://giphy.com/gifs/help-satisfying-breathe-krP2NRkLqnKEg">via GIPHY</a>
+              </p>
             </Col>
           </Row>
         </Container>

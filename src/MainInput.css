@@ -5,15 +5,32 @@
   color: #fff;
 }
 
-.main-container {
+.top-row {
+  padding: 15px;
+}
+
+.reset-button {
+  float: left;
+}
+
+.anxiety-button {
+  float: right;
+}
+
+#main-container {
   padding-top: 25vh;
 }
 
-.main-container .row {
+#main-container .row {
   padding: 15px;
 }
 
 ul {
   list-style-type: none;
   padding-left: 0px;
+}
+
+#anxiety-container {
+  padding-top: 25vh;
+  display: none;
 }
