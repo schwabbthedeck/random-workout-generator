@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import MoveReminder from './components/MoveReminder';
 import Footer from './components/Footer';
 import './MainInput.css';
 // import WorkoutList from './WorkoutList'
@@ -59,17 +60,26 @@ class MainInput extends React.Component {
 
     return (
       <div className="MainInput">
-        <div className="top-row">
-          <Button className="reset-button" variant="outline-primary" size="sm"
-            onClick={() => window.location.reload(false)}
-            disabled={this.state.intro}>
-            Reset
-          </Button>
-          <Button className="anxiety-button" variant="warning" size="sm"
-            onClick={() => this.deepBreath()}>
-            Help, I'm Anxious!
-          </Button>
-        </div>
+        <Container fluid className="top-row">
+          <Row>
+            <Col sm={4}>
+              <Button className="reset-button" variant="outline-primary" size="sm"
+                onClick={() => window.location.reload(false)}
+                disabled={this.state.intro}>
+                Reset
+              </Button>
+            </Col>
+            <Col sm={4}>
+              <MoveReminder />
+            </Col>
+            <Col sm={4}>
+              <Button className="anxiety-button" variant="warning" size="sm"
+                onClick={() => this.deepBreath()}>
+                Help, I'm Anxious!
+              </Button>
+            </Col>
+          </Row>
+        </Container>
         {/* <Container>
           <Row>
             <Col>

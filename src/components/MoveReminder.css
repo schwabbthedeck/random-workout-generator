@@ -1,0 +1,19 @@
+.move-reminder {
+  /* width: 400px; */
+  padding: 5px;
+  background-color: rgba(255,255,255,0.9);
+  color: #282c34;
+}
+
+.move-reminder label {
+  margin-bottom: 0px;
+}
+
+.move-reminder .switch-label {
+  display: inline-block;
+}
+
+.move-reminder .switch {
+  vertical-align: middle;
+  margin-left: 10px;
+}
