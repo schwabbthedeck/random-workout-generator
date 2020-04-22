@@ -3,7 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import Footer from './components/Footer';
 import './MainInput.css';
+// import WorkoutList from './WorkoutList'
 
 // ugly but it works - will refractor into more components moving forward
 
@@ -68,6 +70,13 @@ class MainInput extends Component {
             Help, I'm Anxious!
           </Button>
         </div>
+        {/* <Container>
+          <Row>
+            <Col>
+              <WorkoutList />
+            </Col>
+          </Row>
+        </Container> */}
         <Container id="main-container" fluid>
           <Row className="intro-information">
             <Col>
@@ -84,10 +93,10 @@ class MainInput extends Component {
               </Button>
             </Col>
           </Row>
-          
+
         </Container>
         <Container id="anxiety-container">
-        <Row>
+          <Row>
             <Col>
               {/* <div style={{ width: '100%', height: '0', paddingBottom: '108%', position: 'relative' }}>
                 <iframe title="breath-gif" src="https://giphy.com/embed/krP2NRkLqnKEg" width="100%" height="100%" style={{ position: 'absolute' }} frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
@@ -102,6 +111,7 @@ class MainInput extends Component {
             </Col>
           </Row>
         </Container>
+        <Footer />
       </div>
     )
   }

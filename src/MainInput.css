@@ -34,3 +34,15 @@ ul {
   padding-top: 25vh;
   display: none;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: auto;
+  font-size: 0.9em;
+}
+
+.footer a {
+  color: #fff;
+}
