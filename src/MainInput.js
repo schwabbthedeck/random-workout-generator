@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,7 +9,7 @@ import './MainInput.css';
 
 // ugly but it works - will refractor into more components moving forward
 
-class MainInput extends Component {
+class MainInput extends React.Component {
   constructor(props) {
     super(props);
 

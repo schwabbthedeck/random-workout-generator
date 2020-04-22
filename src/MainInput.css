@@ -3,6 +3,7 @@
   height: 100vh;
   background-color: #282c34;
   color: #fff;
+  position: relative;
 }
 
 .top-row {
@@ -36,7 +37,7 @@ ul {
 }
 
 .footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
   margin: auto;
@@ -45,4 +46,11 @@ ul {
 
 .footer a {
   color: #fff;
+}
+
+/* phone size query */
+@media (max-width: 576px) { 
+  #main-container {
+    padding-top: 10vh;
+  }
 }
