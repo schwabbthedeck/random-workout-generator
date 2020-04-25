@@ -62,17 +62,17 @@ class MainInput extends React.Component {
       <div className="MainInput">
         <Container fluid className="top-row">
           <Row>
-            <Col sm={4}>
+            <Col xsm={4}>
               <Button className="reset-button" variant="outline-primary" size="sm"
                 onClick={() => window.location.reload(false)}
                 disabled={this.state.intro}>
                 Reset
               </Button>
             </Col>
-            <Col sm={4}>
+            <Col xsm={4}>
               <MoveReminder />
             </Col>
-            <Col sm={4}>
+            <Col xsm={4}>
               <Button className="anxiety-button" variant="warning" size="sm"
                 onClick={() => this.deepBreath()}>
                 Help, I'm Anxious!

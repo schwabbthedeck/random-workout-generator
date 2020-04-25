@@ -17,3 +17,10 @@
   vertical-align: middle;
   margin-left: 10px;
 }
+
+/* phone size query */
+@media (max-width: 576px) { 
+  .move-reminder {
+    display: none;
+  }
+}
