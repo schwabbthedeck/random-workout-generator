@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+// currently not in use
 class WorkoutList extends Component {
   render(){
     var workouts = [

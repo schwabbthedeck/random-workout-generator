@@ -17,15 +17,18 @@ class MoveReminder extends React.Component {
   handleChange(checked) {
     this.setState({ checked });
     if (checked) {
-      this.timeoutFunction = setInterval(this.rememberToMove, 36000000);
+      this.timeoutFunction = setTimeout(this.rememberToMove, 3.6e+6);
+      // this.timeoutFunction = setTimeout(this.rememberToMove, 3000);
     } else {
-      clearInterval(this.timeoutFunction);
+      clearTimeout(this.timeoutFunction);
     }
   };
 
   rememberToMove() {
     this.audio.play();
     alert("It's been an hour! Get up and move!");
+    this.timeoutFunction = setTimeout(this.rememberToMove, 3.6e+6);
+    // this.timeoutFunction = setTimeout(this.rememberToMove, 3000);
   }
 
   render() {
