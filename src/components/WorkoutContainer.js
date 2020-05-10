@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // currently not in use
-class WorkoutList extends Component {
+class WorkoutContainer extends Component {
   render(){
     var workouts = [
       ["Pushups", "Crunches", "Squats", "Burpees"],
@@ -16,4 +16,4 @@ class WorkoutList extends Component {
   }
 }
 
-export default WorkoutList;
+export default WorkoutContainer;

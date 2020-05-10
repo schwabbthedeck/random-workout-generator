@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import MainInput from './MainInput';
+import MainContainer from './MainContainer';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <MainInput />
+    <MainContainer />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,4 +1,4 @@
-.MainInput {
+.MainContainer {
   text-align: center;
   height: 100vh;
   background-color: #282c34;
@@ -32,8 +32,8 @@ ul {
 }
 
 #anxiety-container {
-  padding-top: 25vh;
-  display: none;
+  padding-top: 15vh;
+  /* display: none; */
 }
 
 .footer {

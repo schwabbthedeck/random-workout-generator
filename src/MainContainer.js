@@ -4,13 +4,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import MoveReminder from './components/MoveReminder';
+import AnxietyContainer from './components/AnxietyContainer';
 import Footer from './components/Footer';
-import './MainInput.css';
+import './MainContainer.css';
 // import WorkoutList from './WorkoutList'
 
 // ugly but it works - will refractor into more components moving forward
 
-class MainInput extends React.Component {
+class MainContainer extends React.Component {
   constructor(props) {
     super(props);
 
@@ -38,7 +39,7 @@ class MainInput extends React.Component {
       anxious: true,
     });
     document.getElementById("main-container").style.display = "none";
-    document.getElementById("anxiety-container").style.display = "block";
+    // document.getElementById("anxiety-container").style.display = "block";
   }
 
   render() {
@@ -59,7 +60,7 @@ class MainInput extends React.Component {
     }
 
     return (
-      <div className="MainInput">
+      <div className="MainContainer">
         <Container fluid className="top-row">
           <Row>
             <Col xsm={4}>
@@ -105,22 +106,23 @@ class MainInput extends React.Component {
           </Row>
 
         </Container>
-        <Container id="anxiety-container">
+        {/* <Container id="anxiety-container">
           <Row>
-            <Col>
+            <Col> */}
               {/* <div style={{ width: '100%', height: '0', paddingBottom: '108%', position: 'relative' }}>
                 <iframe title="breath-gif" src="https://giphy.com/embed/krP2NRkLqnKEg" width="100%" height="100%" style={{ position: 'absolute' }} frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
               </div>
               <p>
                 <a href="https://giphy.com/gifs/help-satisfying-breathe-krP2NRkLqnKEg">via GIPHY</a>
               </p> */}
-              <img alt="breathing-gif" src="https://media.giphy.com/media/krP2NRkLqnKEg/source.gif"></img>
+              {/* <img alt="breathing-gif" src="https://media.giphy.com/media/krP2NRkLqnKEg/source.gif"></img>
               <p>
                 <a href="https://giphy.com/gifs/help-satisfying-breathe-krP2NRkLqnKEg">via GIPHY</a>
               </p>
             </Col>
           </Row>
-        </Container>
+        </Container> */}
+        {this.state.anxious ? <AnxietyContainer /> : ''}
         <Footer />
       </div>
     )
@@ -150,4 +152,4 @@ function ChooseAWorkout() {
   return workouts[randomNumber];
 }
 
-export default MainInput;
+export default MainContainer;
