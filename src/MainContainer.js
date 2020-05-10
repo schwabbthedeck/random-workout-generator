@@ -1,15 +1,9 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import MoveReminder from './components/MoveReminder';
+import TopRow from './components/TopRow';
+import WorkoutContainer from './components/WorkoutContainer';
 import AnxietyContainer from './components/AnxietyContainer';
 import Footer from './components/Footer';
 import './MainContainer.css';
-// import WorkoutList from './WorkoutList'
-
-// ugly but it works - will refractor into more components moving forward
 
 class MainContainer extends React.Component {
   constructor(props) {
@@ -38,106 +32,32 @@ class MainContainer extends React.Component {
       intro: false,
       anxious: true,
     });
-    document.getElementById("main-container").style.display = "none";
+    // document.getElementById("main-container").style.display = "none";
     // document.getElementById("anxiety-container").style.display = "block";
   }
 
   render() {
-    let workoutText;
-    if (!this.state.intro && !this.state.anxious) {
-      workoutText = (
-        <Row>
-          <Col>
-            <ul>
-              {this.state.workout.map(item => (
-                <li key={item}>{this.state.repNumber} {item}</li>
-              ))}
-              <li>20 Mountain Climbers</li>
-            </ul>
-          </Col>
-        </Row>
-      );
-    }
-
     return (
       <div className="MainContainer">
-        <Container fluid className="top-row">
-          <Row>
-            <Col xsm={4}>
-              <Button className="reset-button" variant="outline-primary" size="sm"
-                onClick={() => window.location.reload(false)}
-                disabled={this.state.intro}>
-                Reset
-              </Button>
-            </Col>
-            <Col xsm={4}>
-              <MoveReminder />
-            </Col>
-            <Col xsm={4}>
-              <Button className="anxiety-button" variant="warning" size="sm"
-                onClick={() => this.deepBreath()}>
-                Help, I'm Anxious!
-              </Button>
-            </Col>
-          </Row>
-        </Container>
-        {/* <Container>
-          <Row>
-            <Col>
-              <WorkoutList />
-            </Col>
-          </Row>
-        </Container> */}
-        <Container id="main-container" fluid>
-          <Row className="intro-information">
-            <Col>
-              <IntroInformation />
-            </Col>
-          </Row>
-          {workoutText}
-
-          <Row className="random-button-row">
-            <Col md={{ span: 8, offset: 2 }}>
-              <Button className="random-button" variant="primary" size="lg" block
-                onClick={() => this.chooseWorkout()}>
-                {this.state.buttonText}
-              </Button>
-            </Col>
-          </Row>
-
-        </Container>
-        {/* <Container id="anxiety-container">
-          <Row>
-            <Col> */}
-              {/* <div style={{ width: '100%', height: '0', paddingBottom: '108%', position: 'relative' }}>
-                <iframe title="breath-gif" src="https://giphy.com/embed/krP2NRkLqnKEg" width="100%" height="100%" style={{ position: 'absolute' }} frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
-              </div>
-              <p>
-                <a href="https://giphy.com/gifs/help-satisfying-breathe-krP2NRkLqnKEg">via GIPHY</a>
-              </p> */}
-              {/* <img alt="breathing-gif" src="https://media.giphy.com/media/krP2NRkLqnKEg/source.gif"></img>
-              <p>
-                <a href="https://giphy.com/gifs/help-satisfying-breathe-krP2NRkLqnKEg">via GIPHY</a>
-              </p>
-            </Col>
-          </Row>
-        </Container> */}
-        {this.state.anxious ? <AnxietyContainer /> : ''}
+        <TopRow disabledIntro={this.state.intro} anxiousOnClick={() => this.deepBreath()} />
+        
+        {this.state.anxious ? 
+          <AnxietyContainer /> : 
+          <WorkoutContainer 
+            chooseRandomWorkout={() => this.chooseWorkout()} 
+            isAnxiousState={this.state.anxious}
+            isIntroState={this.state.intro}
+            workoutInfo={this.state.workout}
+            repNumber={this.state.repNumber}
+            buttonText={this.state.buttonText}
+          />
+        }
         <Footer />
       </div>
     )
   }
 
 }
-
-function IntroInformation(props) {
-  return (
-    <div>
-      <h4>Welcome to the Random Workout Generator!</h4>
-      <div>This was designed to produce a random short workout you can do at home.</div>
-    </div>
-  );
-};
 
 function ChooseAWorkout() {
   var workouts = [

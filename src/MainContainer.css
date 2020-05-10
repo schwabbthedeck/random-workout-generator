@@ -18,22 +18,8 @@
   float: right;
 }
 
-#main-container {
-  padding-top: 15vh;
-}
-
-#main-container .row {
-  padding: 15px;
-}
-
-ul {
-  list-style-type: none;
-  padding-left: 0px;
-}
-
 #anxiety-container {
   padding-top: 15vh;
-  /* display: none; */
 }
 
 .footer {
