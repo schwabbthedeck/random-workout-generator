@@ -37,6 +37,6 @@
 /* phone size query */
 @media (max-width: 576px) { 
   #main-container {
-    padding-top: 10vh;
+    padding-top: 5vh;
   }
 }

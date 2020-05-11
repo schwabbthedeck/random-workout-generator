@@ -2,6 +2,8 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 class Footer extends React.Component {
   render() {
@@ -13,7 +15,11 @@ class Footer extends React.Component {
             <Col>
               &#169;2020 <a href="https://janeschwab.co">janeschwab.co</a>
             </Col>
-            <Col></Col>
+            <Col>
+              <a href="https://github.com/schwabthedeck/random-workout-generator">
+                <FontAwesomeIcon icon={faGithub}/> Source
+              </a>
+            </Col>
           </Row>
         </Container>
       </div>

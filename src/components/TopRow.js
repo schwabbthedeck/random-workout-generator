@@ -12,8 +12,7 @@ class TopRow extends React.Component {
         <Row>
           <Col xsm={4}>
             <Button className="reset-button" variant="outline-primary" size="sm"
-              onClick={() => window.location.reload(false)}
-              disabled={this.props.disabledIntro}>
+              onClick={() => window.location.reload(false)}>
               Reset
             </Button>
           </Col>

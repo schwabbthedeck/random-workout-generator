@@ -1,5 +1,5 @@
 #main-container {
-  padding-top: 15vh;
+  padding-top: 10vh;
 }
 
 #main-container .row {
@@ -9,4 +9,22 @@
 ul {
   list-style-type: none;
   padding-left: 0px;
+}
+
+.nav-tabs {
+  padding: 0 15%;
+}
+
+.nav-tabs .nav-link {
+  width: 50%;
+  background-color: #495057;
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* phone size query */
+@media (max-width: 576px) { 
+  .nav-tabs {
+    padding: 0 1%;
+  }
 }
