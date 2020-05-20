@@ -25,20 +25,19 @@ class RandomWorkout extends React.Component {
   }
 
   render() {
-    let workoutText;
+    let workoutText, message;
     if (!this.state.intro) {
+      message = "";
       workoutText = (
-        <Row>
-          <Col>
-            <ul>
-              {this.state.workout.map(item => (
-                <li key={item}>{this.state.repNumber} {item}</li>
-              ))}
-              <li>20 Mountain Climbers</li>
-            </ul>
-          </Col>
-        </Row>
+        <ul>
+          {this.state.workout.map(item => (
+            <li key={item}>{this.state.repNumber} {item}</li>
+          ))}
+          <li>20 Mountain Climbers</li>
+        </ul>
       );
+    } else {
+      message = "Gives you a random short workout to do anywhere.";
     }
     return (
       <Container id="main-container" fluid>
@@ -46,7 +45,7 @@ class RandomWorkout extends React.Component {
           <Col>
             <div>
               <h4>Welcome to the Random Workout Generator!</h4>
-              <div>This was designed to produce a random short workout you can do at home.</div>
+              <div>{message}</div>
             </div>
           </Col>
         </Row>

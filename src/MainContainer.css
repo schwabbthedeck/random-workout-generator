@@ -34,6 +34,17 @@
   color: #fff;
 }
 
+.footer .col {
+  position: relative;
+}
+
+.footer .col .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 /* phone size query */
 @media (max-width: 576px) { 
   #main-container {
