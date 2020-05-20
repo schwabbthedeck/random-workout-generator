@@ -56,4 +56,12 @@
   #main-container {
     padding-top: 5vh;
   }
+
+  .non-footer-content {
+    height: calc(100% - 88px);
+  }
+
+  .footer {
+    height: 88px;
+  }
 }
