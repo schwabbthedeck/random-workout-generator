@@ -23,8 +23,10 @@ class MainContainer extends React.Component {
   render() {
     return (
       <div className="MainContainer">
-        <TopRow anxiousOnClick={() => this.deepBreath()} />        
-        {this.state.anxious ? <AnxietyContainer /> : <WorkoutContainer /> }
+        <div className="non-footer-content">
+          <TopRow anxiousOnClick={() => this.deepBreath()} />
+          {this.state.anxious ? <AnxietyContainer /> : <WorkoutContainer />}
+        </div>
         <Footer />
       </div>
     )

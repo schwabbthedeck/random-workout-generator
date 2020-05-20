@@ -6,6 +6,11 @@
   position: relative;
 }
 
+.non-footer-content {
+  height: calc(100% - 64px);
+  overflow: auto;
+}
+
 .top-row {
   padding: 15px;
 }
@@ -28,13 +33,14 @@
   width: 100%;
   margin: auto;
   font-size: 0.9em;
+  height: 64px;
 }
 
 .footer a {
   color: #fff;
 }
 
-.footer .col {
+/* .footer .col {
   position: relative;
 }
 
@@ -43,8 +49,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding-top: 20px;
-}
+} */
 
 /* phone size query */
 @media (max-width: 576px) { 

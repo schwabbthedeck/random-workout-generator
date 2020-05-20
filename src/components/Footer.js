@@ -11,17 +11,17 @@ class Footer extends React.Component {
       <div className="footer">
         <Container>
           <Row>
-            <Col>
+            <Col sm>
               <div className="bottom">
                 <a href="https://github.com/schwabthedeck/random-workout-generator">
                   <FontAwesomeIcon icon={faGithub} /> Source
                 </a>
               </div>
             </Col>
-            <Col>
+            <Col sm>
               <div className="bottom">&#169;2020 <a href="https://janeschwab.co">janeschwab.co</a></div>
             </Col>
-            <Col>
+            <Col sm>
               <div className="bottom">
                 <div>Sound from <a href="https://www.zapsplat.com" target="_blank" rel="noopener noreferrer">Zapsplat.com</a></div>
                 <div>Yoga information from <a href="https://yogarove.com/" target="_blank" rel="noopener noreferrer">yogarove.com</a></div>
