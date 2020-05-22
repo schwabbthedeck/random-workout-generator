@@ -1,14 +1,19 @@
+#main-container {
+  padding-top: 3vh;
+  padding-bottom: 65px;
+}
+
+#main-container .row {
+  padding: 15px;
+}
+
 .MainContainer {
   text-align: center;
-  height: 100vh;
-  background-color: #282c34;
-  color: #fff;
   position: relative;
 }
 
 .non-footer-content {
-  height: calc(100% - 64px);
-  overflow: auto;
+  height: calc(100% - 60px);
 }
 
 .top-row {
@@ -28,12 +33,13 @@
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   margin: auto;
   font-size: 0.9em;
-  height: 64px;
+  height: 60px;
+  background-color: #282c34;
 }
 
 .footer a {
@@ -54,7 +60,8 @@
 /* phone size query */
 @media (max-width: 576px) { 
   #main-container {
-    padding-top: 5vh;
+    padding-top: 1vh;
+    padding-bottom: 100px;
   }
 
   .non-footer-content {

@@ -1,14 +1,12 @@
-#main-container {
-  padding-top: 10vh;
-}
-
-#main-container .row {
-  padding: 15px;
-}
-
 ul {
   list-style-type: none;
   padding-left: 0px;
+  width: 325px;
+  margin: auto;
+  background-color: #fff;
+  color: #495057;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .nav-tabs {
@@ -26,5 +24,10 @@ ul {
 @media (max-width: 576px) { 
   .nav-tabs {
     padding: 0 1%;
+  }
+
+  #main-container {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
   }
 }
