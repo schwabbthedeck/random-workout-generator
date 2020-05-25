@@ -19,7 +19,7 @@ class YogaWorkout extends React.Component {
   chooseYogaPose() {
     this.setState({
       intro: false,
-      buttonText: "Choose a new yoga pose!",
+      buttonText: "Choose A New Yoga Pose!",
       yogaPose: ChooseAYogaPose()
     });
   }

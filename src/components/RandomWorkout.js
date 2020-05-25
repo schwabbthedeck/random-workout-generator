@@ -18,7 +18,7 @@ class RandomWorkout extends React.Component {
   chooseWorkout() {
     this.setState({
       intro: false,
-      buttonText: "I want a new workout!",
+      buttonText: "I Want A New Workout!",
       workout: ChooseAWorkout(),
       repNumber: Math.ceil(Math.random() * 14),
     });
