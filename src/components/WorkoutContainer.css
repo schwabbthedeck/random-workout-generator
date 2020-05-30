@@ -1,3 +1,12 @@
+#main-container {
+  padding-top: 3vh;
+  padding-bottom: 65px;
+}
+
+#main-container .row {
+  padding: 15px;
+}
+
 ul {
   list-style-type: none;
   padding-left: 0px;
@@ -11,13 +20,33 @@ ul {
 
 .nav-tabs {
   padding: 0 15%;
+  /* margin-bottom: 1px; */
+  border-bottom: 1px solid #fff;
 }
 
 .nav-tabs .nav-link {
-  width: 50%;
+  width: 33%;
   background-color: #495057;
   color: #fff;
-  border-bottom-color: #fff;
+  border: 1px solid #282c34;
+  margin-bottom: 1px;
+  border-bottom-width: 0px;
+}
+
+.nav-tabs .nav-link.active {
+  border-bottom-width: 0px;
+  margin-bottom: 0px;
+}
+
+.workout-options-list {
+  height: 250px;
+  overflow: auto;
+  color: #282c34;
+  text-align: left;
+}
+
+.advanced-input-options {
+  text-align: left;
 }
 
 /* phone size query */
@@ -29,5 +58,13 @@ ul {
   #main-container {
     padding-top: 5vh;
     padding-bottom: 5vh;
+  }
+
+  .hide-on-xs {
+    display: none;
+  }
+
+  .advanced-input-options {
+    margin-top: 20px;
   }
 }

@@ -3,6 +3,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import RandomWorkout from './RandomWorkout';
 import YogaWorkout from './YogaWorkout';
+import AdvancedOptions from './AdvancedOptions';
 import './WorkoutContainer.css';
 
 class WorkoutContainer extends React.Component {
@@ -14,6 +15,9 @@ class WorkoutContainer extends React.Component {
         </Tab>
         <Tab eventKey="yoga" title="Random Yoga Pose">
           <YogaWorkout />
+        </Tab>
+        <Tab eventKey="advanced" title="Advanced Options">
+          <AdvancedOptions />
         </Tab>
       </Tabs>
 
