@@ -10,7 +10,7 @@ class RandomWorkout extends React.Component {
     this.state = {
       intro: true,
       buttonText: "Pick Me A Random Workout!",
-      workout: [],
+      workout: '',
       repNumber: 0
     }
   }
@@ -27,17 +27,12 @@ class RandomWorkout extends React.Component {
   render() {
     let workoutText, message;
     if (!this.state.intro) {
-      message = "";
-      workoutText = (
-        <ul>
-          {this.state.workout.map(item => (
-            <li key={item}>{this.state.repNumber} {item}</li>
-          ))}
-          <li>20 Mountain Climbers</li>
-        </ul>
-      );
+      message = "Hit the button for another workout!";
+      workoutText = (<ul>
+          <li>{this.state.repNumber} {this.state.workout}</li>
+        </ul>);
     } else {
-      message = "Gives you a random short workout to do anywhere.";
+      message = "Gives you a random workout exercise to do anywhere.";
     }
     return (
       <Container id="main-container" fluid>
@@ -69,14 +64,7 @@ class RandomWorkout extends React.Component {
 }
 
 function ChooseAWorkout() {
-  var workouts = [
-    ["Pushups", "Crunches", "Squats", "Burpees"],
-    ["Bicep Curls", "Spider Crunch", "Shoulder Press", "Dips"],
-    ["Upright Row", "Superman Crunch", "Side Lunges", "Tri Extensions"],
-    ["Quick Squats", "Dumbbell Rows", "Side to Side Lunge Walk", "Zottman Curl"],
-    ["Squat with Weight Swing", "Side Crunches", "Side Plank Rotations with Overhead Reach", "Incline Curl"]
-  ];
-
+  var workouts = ["Pushups", "Crunches", "Squats", "Burpees", "Bicep Curls", "Spider Crunch", "Shoulder Press", "Dips", "Upright Row", "Superman Crunch", "Side Lunges", "Tri Extensions",  "Quick Squats", "Dumbbell Rows", "Side to Side Lunge Walk", "Zottman Curl", "Squat with Weight Swing", "Side Crunches", "Side Plank Rotations with Overhead Reach", "Incline Curl"];
   var randomNumber = Math.floor(Math.random() * workouts.length);
   return workouts[randomNumber];
 }
