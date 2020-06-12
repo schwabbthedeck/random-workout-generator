@@ -110,6 +110,9 @@ let workouts = [
   }
 ];
 
+// Number validation error message
+let mustBeNumberMessage = "Input must be a positive integer.";
+
 class AdvancedOptions extends React.Component {
   constructor(props) {
     super(props);
@@ -120,9 +123,10 @@ class AdvancedOptions extends React.Component {
     this.state = {
       intro: true,
       selectedWorkoutIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-      numberOfReps: 0,
+      numberOfReps: '',
       numberOfExercises: 5,
       addMountainClimbers: false,
+      submitError: '',
       errors: {
         numberOfReps: '',
         numberOfExercises: ''
@@ -133,9 +137,19 @@ class AdvancedOptions extends React.Component {
   // remove id from state or add it back on checkbox change
   onSelectedWorkoutsOptionsChange = (id) => {
     const workoutIds = this.state.selectedWorkoutIds;
+    const newWorkoutIds = workoutIds.includes(id) ? workoutIds.filter(i => i !== id) : [...workoutIds, id];
     this.setState({
-      selectedWorkoutIds: workoutIds.includes(id) ? workoutIds.filter(i => i !== id) : [...workoutIds, id]
+      selectedWorkoutIds: newWorkoutIds
     });
+    if (this.state.numberOfExercises > newWorkoutIds.length) {
+      let errors = this.state.errors;
+      errors.numberOfExercises = mustBeNumberMessage + ' And less than or equal to the number of exercises selected.';
+      this.setState({ errors });
+    } else {
+      let errors = this.state.errors;
+      errors.numberOfExercises = '';
+      this.setState({ errors });
+    }
   }
 
   // set all exercises on select all button
@@ -154,10 +168,11 @@ class AdvancedOptions extends React.Component {
     // add error if they aren't
     switch (id) {
       case 'numberOfReps':
-        errors.numberOfReps = ((Number.isInteger(Number(value)) && parseInt(value) > 0) || value === '') ? '' : 'Number must be a positive integer.';
+        errors.numberOfReps = ((Number.isInteger(Number(value)) && parseInt(value) > 0) || value === '') ? '' : mustBeNumberMessage;
         break;
       case 'numberOfExercises':
-        errors.numberOfExercises = (Number.isInteger(Number(value)) && parseInt(value) > 0) ? '' : 'Number must be a positive integer.';
+        // check that they are positive and less than the number of selected exercises
+        errors.numberOfExercises = (Number.isInteger(Number(value)) && parseInt(value) > 0 && Number(value) <= this.state.selectedWorkoutIds.length) ? '' : mustBeNumberMessage + ' And less than or equal to the number of exercises selected.';
         break;
       default:
         break;
@@ -165,7 +180,7 @@ class AdvancedOptions extends React.Component {
 
     if (id === 'numberOfReps' && value === '') {
       // if the the number of reps is blank set to 0 for random
-      this.setState({ errors, [id]: 0 });
+      this.setState({ errors, [id]: '' });
     } else {
       this.setState({ errors, [id]: Number(value) });
     }
@@ -178,13 +193,24 @@ class AdvancedOptions extends React.Component {
   }
 
   runRandomWorkout() {
-    // create random workout based on input
-    const workoutIds = this.state.selectedWorkoutIds;
-    debugger;
+    // check that something is selected
+    if (this.state.selectedWorkoutIds.length > 0) {
+      this.setState({
+        intro: false,
+        submitError: ''
+      })
+    } else {
+      // nothing selected
+      this.setState({
+        submitError: 'Please select at least one exercise.'
+      })
+    }
   }
 
   backToForm() {
-    debugger;
+    this.setState({
+      intro: true
+    })
   }
 
   render() {
@@ -213,15 +239,15 @@ class AdvancedOptions extends React.Component {
           <Form className="advanced-input-options">
             <Form.Group controlId="numberOfReps" onChange={this.onChangeInputs}>
               <Form.Label>Number of Reps</Form.Label>
-              <Form.Control type="string" placeholder="Random" />
+              <Form.Control type="string" placeholder="Random" defaultValue={this.state.numberOfReps} />
               <Form.Text className="text-danger">{this.state.errors.numberOfReps}</Form.Text>
               <Form.Text className="text-muted">
                 Leave blank for random number of reps between 1 and 15.
-            </Form.Text>
+              </Form.Text>
             </Form.Group>
             <Form.Group controlId="numberOfExercises" onChange={this.onChangeInputs}>
               <Form.Label>Number of Different Exercises</Form.Label>
-              <Form.Control type="string" defaultValue="5" />
+              <Form.Control type="string" defaultValue={this.state.numberOfExercises} />
               <Form.Text className="text-danger">{this.state.errors.numberOfExercises}</Form.Text>
             </Form.Group>
             <Form.Group controlId="addMountainClimbers" onChange={this.changeMountainClimberState}
@@ -232,7 +258,28 @@ class AdvancedOptions extends React.Component {
         </Col>
       </Row>);
     } else {
-
+      // not intro - create random workout based on input
+      const workoutIds = this.state.selectedWorkoutIds;
+      const numberOfExercises = this.state.numberOfExercises;
+      const numberOfReps = (this.state.numberOfReps === '' ? Math.ceil(Math.random() * 15) : this.state.numberOfReps);
+      const selectedWorkouts = workouts.filter((workout) => {
+        return workoutIds.some((id) => {
+          return workout.id === id;
+        })
+      });
+      let randomWorkouts = [];
+      debugger;
+      for(var i = 0; i < numberOfExercises; i++) {
+        var randomIndex = Math.floor(Math.random() * selectedWorkouts.length);
+        randomWorkouts.push(selectedWorkouts[randomIndex]);
+        selectedWorkouts.splice(randomIndex, 1);
+      }
+      content = (<ul>
+        {randomWorkouts.map((item) => (
+          <li key={item.id}>{numberOfReps} {item.value}</li>
+        ))}
+        {this.state.addMountainClimbers ? <li>{numberOfReps} Mountain Climbers</li> : ''}
+      </ul>);
     }
 
     return (
@@ -250,17 +297,18 @@ class AdvancedOptions extends React.Component {
           <Col md={{ span: 8, offset: 2 }}>
             <Button className="random-button" variant="primary" size="lg" block
               onClick={this.state.intro ? () => this.runRandomWorkout() : () => this.backToForm()}>
-              Run It!
+              {this.state.intro ? "Run It!" : "Back To Options"}
             </Button>
           </Col>
         </Row>
-
+        <Row>
+          <Col>
+            <div className="text-danger">{this.state.submitError}</div>
+          </Col>
+        </Row>
       </Container>
     );
   }
-
-
 }
-
 
 export default AdvancedOptions;
