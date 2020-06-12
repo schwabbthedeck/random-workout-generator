@@ -268,7 +268,6 @@ class AdvancedOptions extends React.Component {
         })
       });
       let randomWorkouts = [];
-      debugger;
       for(var i = 0; i < numberOfExercises; i++) {
         var randomIndex = Math.floor(Math.random() * selectedWorkouts.length);
         randomWorkouts.push(selectedWorkouts[randomIndex]);

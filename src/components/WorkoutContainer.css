@@ -67,4 +67,8 @@ ul {
   .advanced-input-options {
     margin-top: 20px;
   }
+
+  ul {
+    width: 100%;
+  }
 }
