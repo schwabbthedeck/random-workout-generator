@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "015af061fae63b697c998ba583162637",
+    "revision": "50f58b199c82d0b2404a345b5490d24f",
     "url": "/random-workout-generator/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/random-workout-generator/static/css/2.de424728.chunk.css"
   },
   {
-    "revision": "34eddae98fb10b5840ac",
+    "revision": "6b1ab6950de7e4c9b582",
     "url": "/random-workout-generator/static/css/main.1791a09a.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/random-workout-generator/static/js/2.35984267.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "34eddae98fb10b5840ac",
-    "url": "/random-workout-generator/static/js/main.7683416d.chunk.js"
+    "revision": "6b1ab6950de7e4c9b582",
+    "url": "/random-workout-generator/static/js/main.eb3e0922.chunk.js"
   },
   {
     "revision": "0a7ca48b0ec8b75d0822",
