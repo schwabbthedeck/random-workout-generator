@@ -277,7 +277,7 @@ class AdvancedOptions extends React.Component {
         {randomWorkouts.map((item) => (
           <li key={item.id}>{numberOfReps} {item.value}</li>
         ))}
-        {this.state.addMountainClimbers ? <li>{numberOfReps} Mountain Climbers</li> : ''}
+        {this.state.addMountainClimbers ? <li>20 Mountain Climbers</li> : ''}
       </ul>);
     }
 
