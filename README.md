@@ -1,6 +1,6 @@
 # Random Workout Generator
 
-A single page site that helps you pick a random workout. Based on a friends suggestion where they used playing cards from a deck to select a random workout move. Built using React as a way to get familiar with it again.
+A single page site that helps you pick a random workout. Based on a friends suggestion where they used playing cards from a deck to select a random workout move. Built using React as a way to get familiar with it again. [Check it out here!](https://janeschwab.co/random-workout-generator/)
 
 Features:
 - Random workout move with a random number of reps from 1 to 14
