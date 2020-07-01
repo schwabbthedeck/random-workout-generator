@@ -12,8 +12,6 @@ Features:
 
 ![Landing Page](/images/landingpage.png)
 
-The home page picks one workout move with a random number of reps between 1-14. 
-
 
 ###### Advanced Options
 The form allows you to choose from a list of workouts, number of reps, number of different exercises, and option to add mountain climbers to the end of your workout.
